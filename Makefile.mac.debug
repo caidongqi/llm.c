@@ -1,12 +1,9 @@
-# 使用 Android NDK 提供的编译器
-NDK_TOOLCHAIN = /Users/cdq/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin
-CC = $(NDK_TOOLCHAIN)/aarch64-linux-android33-clang
-CFLAGS = -Ofast -fPIE -fPIC -DANDROID
-LDFLAGS = -pie
+CC ?= clang
+CFLAGS = -Ofast -Wno-unused-result -Wno-ignored-pragmas -Wno-unknown-attributes -g
+LDFLAGS =
 LDLIBS = -lm
-
 INCLUDES =
-# CFLAGS_COND = -march=native
+CFLAGS_COND = -march=native
 
 # Find nvcc
 SHELL_UNAME = $(shell uname)

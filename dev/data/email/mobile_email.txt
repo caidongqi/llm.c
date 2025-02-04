@@ -1,0 +1,94 @@
+Dear Mr Cai,
+
+Thank you for submitting your manuscript entitled "Ubiquitous Memory Augmentation via Mobile Multimodal Embedding System" to Nature Communications. I am pleased to inform you that we are sending your manuscript out for formal peer review.
+
+Please read carefully the below information to ensure no delays in the processing of your paper. If you have already provided any of the information below, then there is no need to provide it again.
+
+Related Submissions
+If you have not done so already, please alert us to any related manuscripts from your group that are under consideration or in press at other journals, or are being written up for submission to other journals (see www.nature.com/authors/editorial_policies/duplicate.html for details).
+
+Preprints
+We would encourage you to share a preprint of the original submitted version of your paper so as to minimize delays in communicating your research findings; benefits of preprints include early visibility, and citations and demonstration of research progress. You are free to use a discipline-specific preprint platform of your choice. More information about our preprint policy can be found here.
+
+ORCID
+Springer Nature encourages all authors and reviewers to adopt an Open Researcher and Contributor Identifier (ORCID). ORCID is a community-based initiative that provides an open, non-proprietary and transparent registry of unique identifiers to help disambiguate research contributions. All authors who link their ORCID to their account in our submission system will have their ORCID published on their articles, if the article is accepted for publication. Please note that this is only possible if ORCIDs are linked prior to acceptance, that is, it is not possible to add ORCIDs at proof.
+
+Please ensure that all co-authors are aware that they can add their ORCIDs to their accounts and that they must do so prior to acceptance.
+
+To add an ORCID please follow these instructions:
+
+1. From the home page of the MTS click on ‘Modify my Springer Nature account’ under ‘General tasks’.
+2. In the ‘Personal profile’ tab, click on ‘ORCID Create/link an Open Researcher Contributor ID (ORCID)’. This will re-direct you to the ORCID website.
+3a. If you already have an ORCID account, enter your ORCID email and password and click on ‘Authorize’ to link your ORCID with your account on the MTS.
+3b. If you don’t yet have an ORCID account, you can easily create one by providing the required information and then clicking on ‘Authorize’. This will link your newly created ORCID with your account on the MTS.
+
+If you experience problems in linking your ORCID, please contact Platform Support
+
+Code and Software (please ignore if your paper does not have novel code/software)
+If your manuscript involved development of code central to the main work, please follow the instructions below related to Code submission. If you have already provided code and software checklists, you do not need to send them again.
+
+We would like to ask you that you please provide a link to a code repository and complete the following software and custom code submission checklist:
+Software supplement: https://www.nature.com/documents/nr-software-policy.pdf
+(Please note that the form is a dynamic 'smart pdf' and must therefore be downloaded and completed in Adobe Reader.)
+
+Alternatively, or as an additional resource, please consider setting up an executable compute capsule for your code on the cloud-based platform Code Ocean, to facilitate the review process as well as the reproducibility and re-usability of your code. Code Ocean staff will assist you in generating a compute capsule for your code and provide a working copy of this compute capsule for use in the peer review process (after a brief review by Code Ocean staff, to ensure that everything runs). If you have selected Double Blind Peer Review, we will make sure the capsule contains no information about your identity.
+
+Please let us know as soon as possible if you wish to participate and we will provide you with further information about setting up a compute capsule. An overview of the process can be found here: https://help.codeocean.com/publishing-on-code-ocean/peer-review-on-code-ocean.
+
+If you do not opt for setting a Code Ocean capsule, please fill in the software and custom code submission checklist.
+
+Some further information about using Code Ocean for peer review and publication of code can be found in this blog post https://help.codeocean.com/en/articles/2644233-peer-review-on-code-ocean and in Code Ocean's user guide https://docs.codeocean.com/user-guide/.
+
+Peer Review Information
+Please note that we implement transparent peer review, in which we publish the reviewer comments to the authors and author rebuttal letters as a supplementary peer review file, for primary research published papers. On author request, confidential information and data can be removed from the published reviewer reports and rebuttal letters prior to publication. For more information, please refer to our FAQ page here.
+
+Finally, we would like to inform you that on a case by case basis we coordinate a brief consultation between referees and editors after all referee reports have been received. This is to improve the peer review process and the feedback provided to authors. Referees are given the opportunity to make comments on their peers’ concerns and update their reports to comment on issues raised by the other reviewers. If we feel it would be helpful, we will engage reviewers in this additional consultation with the goal of providing you with the most valuable feedback possible.
+
+
+We will be in touch again as soon as we have received comments from our referees. In the meantime - the status of your manuscript can be followed in the manuscript tracking system.
+
+Best regards,
+
+Dr. Marcel Bigorajski
+Associate Editor
+Nature Communications
+
+
+
+This email has been sent through the Springer Nature Tracking System NY-610A-NPG&MTS
+
+Confidentiality Statement:
+
+This e-mail is confidential and subject to copyright. Any unauthorised use or disclosure of its contents is prohibited. If you have received this email in error please notify our Manuscript Tracking System Helpdesk team at http://platformsupport.nature.com .
+
+Details of the confidentiality and pre-publicity policy may be found here http://www.nature.com/authors/policies/confidentiality.html
+
+Privacy Policy | Update Profile
+
+
+Dear Mr. Cai,
+
+Thank you for submitting your manuscript entitled "Ubiquitous Memory Augmentation via Mobile Multimodal Embedding System" to Nature Communications.
+
+We notice that your manuscript uses or develops Machine Learning algorithms. In order to guarantee high standards in the reporting of ML-based works, and to help reviewers evaluate the work adequately, we ask you to fill out and return to me the following machine learning checklist that will be made available to editors and reviewers during manuscript assessment:
+
+www.nature.com/documents/machine-learning-checklist.pdf
+
+Please send the completed item(s) within 48 hours to avoid any delays in the peer review of your manuscript. Further information about our policies on the availability of data, materials and methods can be found here: http://www.nature.com/authors/policies/availability.html
+
+Thank you again for submitting your work to Nature Communications.
+
+Dr. Marcel Bigorajski
+Associate Editor
+Nature Communications
+
+
+This email has been sent through the Springer Nature Tracking System NY-610A-NPG&MTS
+
+Confidentiality Statement:
+
+This e-mail is confidential and subject to copyright. Any unauthorised use or disclosure of its contents is prohibited. If you have received this email in error please notify our Manuscript Tracking System Helpdesk team at http://platformsupport.nature.com .
+
+Details of the confidentiality and pre-publicity policy may be found here http://www.nature.com/authors/policies/confidentiality.html
+
+Privacy Policy | Update Profile

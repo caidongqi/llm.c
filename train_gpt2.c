@@ -1072,13 +1072,24 @@ int sample_mult(float* probabilities, int n, float coin) {
     return n - 1; // in case of rounding errors
 }
 
+void error_usage() {
+    fprintf(stderr, "Usage: ./train_gpt2cu [options]\n");
+    fprintf(stderr, "Options:\n");
+    fprintf(stderr, "  -b <int>    batch size (default = 16)\n");
+    fprintf(stderr, "  -t <int>    sequence length (default = 1024)\n");
+    fprintf(stderr, "  -M <string> model name, e.g. gpt2, gpt2-medium, gpt2-large, gpt2-xl, d12, d24, d36, d48\n");
+    fprintf(stderr, "\nExample:\n");
+    fprintf(stderr, "  ./train_gpt2 -b 16 -t 1024 -M gpt2-d48\n");
+    exit(EXIT_FAILURE);
+}
+
 // ----------------------------------------------------------------------------
 // main training loop
-int main() {
-
+int main(int argc, char** argv) {
+    setbuf(stdout, NULL); // 禁用stdout缓冲
     // build the GPT-2 model from a checkpoint
     GPT2 model;
-    gpt2_build_from_checkpoint(&model, "gpt2_124M.bin");
+    // gpt2_build_from_checkpoint(&model, "gpt2_d48.bin");
 
     // build the DataLoaders from tokens files. for now use tiny_shakespeare if available, else tiny_stories
     const char* tiny_stories_train = "dev/data/tinystories/TinyStories_train.bin";
@@ -1089,11 +1100,34 @@ int main() {
     const char* val_tokens = access(tiny_shakespeare_val, F_OK) != -1 ? tiny_shakespeare_val : tiny_stories_val;
     int B = 4; // batch size 4 (i.e. 4 independent token sequences will be trained on)
     int T = 64; // sequence length 64 (i.e. each sequence is 64 tokens long). must be <= maxT, which is 1024 for GPT-2
+
+    // 如果用户提供了命令行参数，那么解析它们
+    // argv[1] 用于 B，argv[2] 用于 T
+
+    // 参数解析
+    for (int i = 1; i < argc; i += 2) {
+        if (i + 1 >= argc) { error_usage(); }
+        if (argv[i][0] != '-') { error_usage(); }
+        if (!(strlen(argv[i]) == 2)) { error_usage(); }
+
+        if (argv[i][1] == 'b') {
+            B = atoi(argv[i+1]);
+        } else if (argv[i][1] == 't') {
+            T = atoi(argv[i+1]);
+        } else if (argv[i][1] == 'M') {
+            gpt2_build_from_checkpoint(&model, argv[i+1]);
+        } else {
+            error_usage();
+        }
+    }
+
     DataLoader train_loader, val_loader;
     dataloader_init(&train_loader, train_tokens, B, T, 0, 1, 1);
     dataloader_init(&val_loader, val_tokens, B, T, 0, 1, 0);
     printf("train dataset num_batches: %zu\n", train_loader.num_tokens / (B*T));
     printf("val dataset num_batches: %zu\n", val_loader.num_tokens / (B*T));
+    printf("batch_size: %d\n", B);
+    printf("seq_len: %d\n", T);
     int val_num_batches = 5;
 
     // build the Tokenizer
@@ -1107,7 +1141,7 @@ int main() {
 
     // train
     struct timespec start, end;
-    for (int step = 0; step <= 40; step++) {
+    for (int step = 0; step <= 1000; step++) {
 
         // once in a while estimate the validation loss
         if (step % 10 == 0) {
@@ -1123,7 +1157,7 @@ int main() {
         }
 
         // once in a while do model inference to print generated text
-        if (step > 0 && step % 20 == 0) {
+        if (step % 20 == 0) {
             // fill up gen_tokens with the GPT2_EOT, which kicks off the generation
             for(int i = 0; i < B * T; ++i) {
                 gen_tokens[i] = tokenizer.eot_token;

@@ -41,23 +41,34 @@ extern inline FILE *fopen_check(const char *path, const char *mode, const char *
 
 #define fopenCheck(path, mode) fopen_check(path, mode, __FILE__, __LINE__)
 
-extern inline void fread_check(void *ptr, size_t size, size_t nmemb, FILE *stream, const char *file, int line) {
-    size_t result = fread(ptr, size, nmemb, stream);
-    if (result != nmemb) {
-        if (feof(stream)) {
-            fprintf(stderr, "Error: Unexpected end of file at %s:%d\n", file, line);
-        } else if (ferror(stream)) {
-            fprintf(stderr, "Error: File read error at %s:%d\n", file, line);
-        } else {
-            fprintf(stderr, "Error: Partial read at %s:%d. Expected %zu elements, read %zu\n",
-                    file, line, nmemb, result);
+#define CHUNK_SIZE 1024 // 定义每次读取的块大小
+
+void fread_check(void *ptr, size_t size, size_t nmemb, FILE *stream, const char *file, int line) {
+    size_t total_read = 0;
+    size_t result;
+    char *buffer = (char *)ptr;
+
+    while (total_read < nmemb) {
+        size_t elements_to_read = (nmemb - total_read) > CHUNK_SIZE ? CHUNK_SIZE : (nmemb - total_read);
+        result = fread(buffer + total_read * size, size, elements_to_read, stream);
+        total_read += result;
+
+        if (result != elements_to_read) {
+            if (feof(stream)) {
+                fprintf(stderr, "Error: Unexpected end of file at %s:%d\n", file, line);
+            } else if (ferror(stream)) {
+                fprintf(stderr, "Error: File read error at %s:%d\n", file, line);
+            } else {
+                fprintf(stderr, "Error: Partial read at %s:%d. Expected %zu elements, read %zu\n",
+                        file, line, nmemb, total_read);
+            }
+            fprintf(stderr, "Error details:\n");
+            fprintf(stderr, "  File: %s\n", file);
+            fprintf(stderr, "  Line: %d\n", line);
+            fprintf(stderr, "  Expected elements: %zu\n", nmemb);
+            fprintf(stderr, "  Read elements: %zu\n", total_read);
+            exit(EXIT_FAILURE);
         }
-        fprintf(stderr, "Error details:\n");
-        fprintf(stderr, "  File: %s\n", file);
-        fprintf(stderr, "  Line: %d\n", line);
-        fprintf(stderr, "  Expected elements: %zu\n", nmemb);
-        fprintf(stderr, "  Read elements: %zu\n", result);
-        exit(EXIT_FAILURE);
     }
 }
 
